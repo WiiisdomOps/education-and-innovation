@@ -1,7 +1,8 @@
-# Wiiisdom Ops for Tableau (formerly Kinesis-CI) - Sample Project
+# Wiiisdom Ops for Tableau (formerly Kinesis-CI)
+Sample Project
 
-Education and innovation is a sample project for users of the Wiiisdom Ops for Tableau tool for Tableau.
-Wiiisdom Ops for Tableau is a test framework that adds automated testing and continuous integration capability to Tableau Server.
+Education and innovation is a sample project for users of the Wiiisdom Ops for Tableau tool.
+Wiiisdom Ops for Tableau is a test framework that adds automated testing and continuous integration capability to Tableau Server and Tableau Online.
 For more information on Wiiisdom Ops for Tableau, please visit http://wiiisdom.com
 
 ![screenshot](/screenshot.png)
