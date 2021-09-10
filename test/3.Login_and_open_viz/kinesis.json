@@ -1,0 +1,22 @@
+{
+    "type": "functional",
+    "description": "Login to Tableau and Open Dashboard",
+    "name": "3.Login_and_open_viz",
+    "tasks": [
+        {
+            "description": "Login to Tableau to open dashboard",
+            "name": "Login to Tableau",
+            "password": "{{TABLEAU_PWD}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "type": "login_tableau",
+            "url": "{{TABLEAU_URL}}",
+            "user": "{{TABLEAU_USER}}"
+        },
+        {
+            "description": "Open Education and Innovation Dashboard",
+            "name": "Open Education and Innovation Dashboard",
+            "type": "viz_open",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+        }
+    ]
+}

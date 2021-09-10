@@ -1,0 +1,71 @@
+{
+    "type": "functional",
+    "description": "Sample test for Assert Data Rules",
+    "name": "8.Assert_Data_Rules",
+    "tasks": [
+        {
+            "db-password": "{{MSQL_PWD}}",
+            "db-username": "{{MSQL_USER}}",
+            "name": "Publish Tableau workbook",
+            "project": "{{TABLEAU_PROJECT}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/Education and Innovation.twb",
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "Education and Innovation",
+            "type": "publish_tableau"
+        },
+        {
+            "name": "Login to Tableau",
+            "password": "{{TABLEAU_PWD}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "type": "login_tableau",
+            "url": "{{TABLEAU_URL}}",
+            "user": "{{TABLEAU_USER}}"
+        },
+        {
+            "name": "Open Viz - Bubble Chart",
+            "type": "viz_open",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+        },
+        {
+            "name": "Set Region Filter",
+            "select-all": false,
+            "target": "Region",
+            "type": "set_filter_list",
+            "values": [
+                "Africa",
+                "Asia",
+                "Europe"
+            ]
+        },
+        {
+            "name": "Assert Data Rules",
+            "rules": [
+                {
+                    "column": "Region",
+                    "expression-value": "Oceania",
+                    "operator": "not-equals"
+                },
+                {
+                    "column": "Region",
+                    "expression-value": "Asia|Africa|Europe",
+                    "operator": "regex"
+                },
+                {
+                    "column": "Patent and Trade Mark Applications, total",
+                    "expression-value": "0",
+                    "operator": "greater-than"
+                }
+            ],
+            "tableau-export-csv": {
+                "delimiter": ",",
+                "encoding": "utf8",
+                "newline-char": "\n"
+            },
+            "target": "Educated Countries",
+            "type": "assert_data_rule_meets"
+        }
+    ]
+}

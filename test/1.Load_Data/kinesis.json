@@ -1,0 +1,27 @@
+{
+    "type": "functional",
+    "description": "Load data from database",
+    "name": "1.Load_Data",
+    "tasks": [
+        {
+            "description": "Load data from database",
+            "name": "Load data",
+            "source-csv": {
+                "csv-path": "resources/worldbank_dev_indicators_3500_rows.csv",
+                "delimiter": ",",
+                "encoding": "utf8",
+                "newline-char": "\r\n"
+            },
+            "target-db": {
+                "classname": "com.mysql.jdbc.Driver",
+                "password": "{{MSQL_PWD}}",
+                "rows-per-insert": 250,
+                "subname": "{{MSQL_JDBC_SU}}",
+                "subprotocol": "mysql",
+                "table": "worldbank_development_indicators",
+                "user": "{{MSQL_USER}}"
+            },
+            "type": "load_data"
+        }
+    ]
+}

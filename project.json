@@ -1,0 +1,8 @@
+{
+    "kinesisVersion": "1.0",
+    "name": "Education_and_innovation",
+    "description": "tests for education and innovation dashboard",
+    "srcDir": "src",
+    "jobDir": "test",
+    "contextDir": "context"
+}

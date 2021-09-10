@@ -1,0 +1,43 @@
+{
+    "type": "functional",
+    "description": "Switch Tab",
+    "name": "11.Switch_Tab",
+    "tasks": [
+        {
+            "db-password": "{{MSQL_PWD}}",
+            "db-username": "{{MSQL_USER}}",
+            "disabled": false,
+            "name": "Publish Tableau datasource with tabbed sheets",
+            "project": "{{TABLEAU_PROJECT}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/Education and Innovation.twb",
+            "tabbed": true,
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "Education and Innovation",
+            "type": "publish_tableau"
+        },
+        {
+            "disabled": false,
+            "name": "Login to Tableau",
+            "password": "{{TABLEAU_PWD}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "type": "login_tableau",
+            "url": "{{TABLEAU_URL}}",
+            "user": "{{TABLEAU_USER}}"
+        },
+        {
+            "disabled": false,
+            "name": "Open Education and Innovation Dashboard",
+            "type": "viz_open",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+        },
+        {
+            "disabled": false,
+            "name": "Switch Tab",
+            "type": "switch_view",
+            "view-name": "Educated Countries"
+        }
+    ]
+}

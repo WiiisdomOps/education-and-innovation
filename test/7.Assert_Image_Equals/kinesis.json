@@ -1,0 +1,44 @@
+{
+    "type": "functional",
+    "description": "Sample for assert image equals",
+    "name": "7.Assert_Image_Equals",
+    "tasks": [
+        {
+            "db-password": "{{MSQL_PWD}}",
+            "db-username": "{{MSQL_USER}}",
+            "description": "ublish Education and Innovation twb workbook to Tableau Server",
+            "name": "Publish Tableau workbook",
+            "project": "Education",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/Education and Innovation.twb",
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "Education and Innovation",
+            "type": "publish_tableau"
+        },
+        {
+            "description": "Login to Tableau to open dashboard",
+            "name": "Login to Tableau",
+            "password": "{{TABLEAU_PWD}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "type": "login_tableau",
+            "url": "{{TABLEAU_URL}}",
+            "user": "{{TABLEAU_USER}}"
+        },
+        {
+            "description": "Open Education and Innovation Dashboard",
+            "name": "Open Education and Innovation Dashboard",
+            "type": "viz_open",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+        },
+        {
+            "description": "Assert image equals to test layout",
+            "expected-image-path": "resources/Dashboard.png",
+            "name": "Assert image equals",
+            "sampling-size": 50,
+            "threshold-percentage": 10,
+            "type": "assert_image_equals"
+        }
+    ]
+}

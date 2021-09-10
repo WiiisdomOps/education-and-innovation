@@ -1,0 +1,65 @@
+{
+    "type": "functional",
+    "description": "Sample Test for Assert Filter Equals Task",
+    "name": "12.Assert_Filter_Equals",
+    "tasks": [
+        {
+            "db-password": "{{MSQL_PWD}}",
+            "db-username": "{{MSQL_USER}}",
+            "disabled": false,
+            "name": "Publish Tableau workbook",
+            "project": "{{TABLEAU_PROJECT}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/Education and Innovation.twb",
+            "tabbed": false,
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "Education and Innovation",
+            "type": "publish_tableau"
+        },
+        {
+            "disabled": false,
+            "name": "Login to Tableau",
+            "password": "{{TABLEAU_PWD}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "type": "login_tableau",
+            "url": "{{TABLEAU_URL}}",
+            "user": "{{TABLEAU_USER}}"
+        },
+        {
+            "disabled": false,
+            "name": "Open Viz - Dashboard",
+            "type": "viz_open",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+        },
+        {
+            "disabled": false,
+            "name": "Set Filter: Region",
+            "select-all": false,
+            "target": "Region",
+            "target-worksheet": "Educated Countries",
+            "type": "set_filter_list",
+            "values": [
+                "Africa",
+                "Asia",
+                "Europe"
+            ]
+        },
+        {
+            "check-values": true,
+            "disabled": false,
+            "filter-type": "CATEGORICAL",
+            "formatted-values": true,
+            "name": "Assert Filter Equals: Region",
+            "target": "Region",
+            "target-worksheet": "Educated Countries",
+            "type": "assert_filter_equals",
+            "value-list": [
+                "Africa",
+                "Asia",
+                "Europe"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "type": "performance",
+    "description": "Sample for Performance Test",
+    "name": "13.Performance_Test",
+    "tasks": [
+        {
+            "SLA": {
+                "apdex-goal": 0.85,
+                "availability-goal": 99.5,
+                "response-time-goal": 3000
+            },
+            "advanced": {
+                "compatibility-mode": false,
+                "force-login": true,
+                "think-time-before-interaction": 0,
+                "think-time-between-test": 0,
+                "tolerated-apdex-multiplier": 4
+            },
+            "clients": 20,
+            "disabled": false,
+            "duration": 300,
+            "load-mix": "InteractVizLoadTest",
+            "name": "Performance Test  - Tableau Server",
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "type": "performance_test",
+            "user-pool": [
+                {
+                    "password": "secret",
+                    "username": "dev2"
+                },
+                {
+                    "password": "secret",
+                    "username": "dev3"
+                }
+            ],
+            "view-pool": [
+                "/site/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard",
+                "/site/{{TABLEAU_SITE}}/views/EducationandInnovation/EnrolmentinEducation"
+            ]
+        }
+    ]
+}

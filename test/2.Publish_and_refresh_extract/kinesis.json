@@ -1,0 +1,67 @@
+{
+    "type": "functional",
+    "description": "Publish data source and workbook and refresh",
+    "name": "2.Publish_and_refresh_extract",
+    "tasks": [
+        {
+            "description": "Load data from database",
+            "name": "Load data",
+            "source-csv": {
+                "csv-path": "resources/worldbank_dev_indicators_3500_rows.csv",
+                "delimiter": ",",
+                "encoding": "utf8",
+                "newline-char": "\r\n"
+            },
+            "target-db": {
+                "classname": "com.mysql.jdbc.Driver",
+                "password": "{{MSQL_PWD}}",
+                "rows-per-insert": 250,
+                "subname": "{{MSQL_JDBC_SU}}",
+                "subprotocol": "mysql",
+                "table": "worldbank_development_indicators",
+                "user": "{{MSQL_USER}}"
+            },
+            "type": "load_data"
+        },
+        {
+            "db-password": "{{MSQL_PWD}}",
+            "db-username": "{{MSQL_USER}}",
+            "description": "Publish Education and Innovation tdsx datasource to Tableau Server",
+            "name": "Publish Tableau datasource",
+            "project": "{{TABLEAU_PROJECT}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/worldbank_development_indicators.tdsx",
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "worldbank_development_indicators",
+            "type": "publish_tableau"
+        },
+        {
+            "description": "Refresh data extracts for Worldbank Development Indicators data source",
+            "name": "Refresh data extracts for Worldbank Development Indicators",
+            "project": "{{TABLEAU_PROJECT}}",
+            "refresh-extracts-type": "datasource",
+            "site-id": "{{TABLEAU_SITE}}",
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "worldbank_development_indicators",
+            "type": "refreshextracts_tableau"
+        },
+        {
+            "db-password": "{{MSQL_PWD}}",
+            "db-username": "{{MSQL_USER}}",
+            "description": "Publish Education and Innovation twb workbook to Tableau Server",
+            "name": "Publish Tableau workbook",
+            "project": "{{TABLEAU_PROJECT}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/Education and Innovation.twb",
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "Education and Innovation",
+            "type": "publish_tableau"
+        }
+    ]
+}

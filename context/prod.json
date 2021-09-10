@@ -1,0 +1,13 @@
+{
+    "context-variables": {
+        "MSQL_JDBC_SU": "<MYSQL_PROD_SERVER_JDBC_URL__[//HOST:PORT/DATABASE]>",
+        "MSQL_USER": "<MYSQL_PROD_SERVER_USER>",
+        "MSQL_PWD": "<MYSQL_PROD_SERVER_PASSWORD>",
+        "TABLEAU_URL": "http://localhost:80",
+        "TABLEAU_SITE": "<TABLEAU_PROD_SERVER_SITE>",
+        "TABLEAU_USER": "<TABLEAU_PROD_SERVER_USER>",
+        "TABLEAU_PWD": "<TABLEAU_PROD_SERVER_PASSWORD>",
+        "TABLEAU_PROJECT": "<TABLEAU_DEV_SERVER_PROJECT>",
+        "TABLEAU_REST_API_CONTEXT_PATH": "/api/2.5/"
+    }
+}

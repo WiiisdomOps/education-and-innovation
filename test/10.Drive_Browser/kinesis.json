@@ -1,0 +1,46 @@
+{
+    "type": "functional",
+    "description": "Sample for Drive Browser",
+    "name": "10.Drive_Browser",
+    "tasks": [
+        {
+            "commands": [
+                {
+                    "param-1": "{{TABLEAU_URL}}",
+                    "type": "navigate-to"
+                },
+                {
+                    "param-1": "//input[@name=\"username\"]",
+                    "type": "wait-until-exists"
+                },
+                {
+                    "param-1": "//input[@name=\"username\"]",
+                    "param-2": "{{TABLEAU_USER}}",
+                    "type": "input-text"
+                },
+                {
+                    "param-1": "//input[@name=\"password\"]",
+                    "param-2": "{{TABLEAU_PWD}}",
+                    "type": "input-text"
+                },
+                {
+                    "param-1": "//button",
+                    "type": "click"
+                },
+                {
+                    "param-1": "Projects - Tableau Server",
+                    "type": "wait-until-title"
+                },
+                {
+                    "param-1": "5000",
+                    "type": "pause"
+                }
+            ],
+            "disabled": false,
+            "name": "Login to Tableau Server 10.2 with webdriver comands",
+            "query-selector": "xpath",
+            "timeout": 5000,
+            "type": "drive_browser"
+        }
+    ]
+}

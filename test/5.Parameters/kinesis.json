@@ -1,0 +1,45 @@
+{
+    "type": "functional",
+    "description": "Set Parameter for Chart Type",
+    "name": "5.Parameters",
+    "tasks": [
+        {
+            "db-password": "{{MSQL_PWD}}",
+            "db-username": "{{MSQL_USER}}",
+            "description": "Publish Education and Innovation twb workbook to Tableau Server",
+            "name": "Publish Tableau workbook",
+            "project": "Education",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/Education and Innovation.twb",
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "Education and Innovation",
+            "type": "publish_tableau"
+        },
+        {
+            "description": "Login to Tableau to open dashboard",
+            "name": "Login to Tableau",
+            "password": "{{TABLEAU_PWD}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "type": "login_tableau",
+            "url": "{{TABLEAU_URL}}",
+            "user": "{{TABLEAU_USER}}"
+        },
+        {
+            "description": "Open Education and Innovation Dashboard",
+            "name": "Open Education and Innovation Dashboard",
+            "refresh-data": true,
+            "type": "viz_open",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+        },
+        {
+            "description": "Change Chart Type to Map",
+            "name": "Set Parameter: Chart Type",
+            "parameter-type": "string",
+            "target": "Chart Type",
+            "type": "set_parameter",
+            "value-string": "Map"
+        }
+    ]
+}

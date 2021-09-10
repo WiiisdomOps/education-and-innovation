@@ -1,0 +1,67 @@
+{
+    "type": "functional",
+    "description": "Example for Select Marks task combined with Assert Data Rules to validate marks selection",
+    "name": "14.Select_Marks",
+    "tasks": [
+        {
+            "db-password": "9h9xIo45b0rLjQrZ;encrypted",
+            "db-username": "{{MSQL_USER}}",
+            "disabled": false,
+            "name": "Publish Tableau workbook",
+            "project": "{{TABLEAU_PROJECT}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/Education and Innovation.twb",
+            "tabbed": false,
+            "tableau-server-password": "9h9oMJ05dVvJlifzl/v8;encrypted",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "Education and Innovation",
+            "type": "publish_tableau"
+        },
+        {
+            "disabled": false,
+            "name": "Login to Tableau",
+            "password": "9h9oMJ05dVvJlifzl/v8;encrypted",
+            "site-id": "{{TABLEAU_SITE}}",
+            "type": "login_tableau",
+            "url": "{{TABLEAU_URL}}",
+            "user": "{{TABLEAU_USER}}"
+        },
+        {
+            "disabled": false,
+            "name": "Open Viz - Shipping Trend",
+            "type": "viz_open",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+        },
+        {
+            "dimension-values": [
+                "Sweden"
+            ],
+            "disabled": false,
+            "field": "Country",
+            "field-type": "DIMENSION",
+            "name": "Select Marks - Country",
+            "target": "Gvt Spending on Education BAR",
+            "type": "select_marks",
+            "update-type": "ADD"
+        },
+        {
+            "disabled": false,
+            "name": "Assert Data Rules - Country",
+            "rules": [
+                {
+                    "column": "Country",
+                    "expression-value": "Sweden",
+                    "operator": "equals"
+                }
+            ],
+            "tableau-export-csv": {
+                "delimiter": ",",
+                "encoding": "utf8",
+                "newline-char": "\n"
+            },
+            "target": "Gvt Spending on Education BAR",
+            "type": "assert_data_rule_meets"
+        }
+    ]
+}

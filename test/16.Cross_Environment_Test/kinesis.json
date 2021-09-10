@@ -1,0 +1,36 @@
+{
+    "description": "Sample for Cross Environment Test",
+    "name": "16.Cross_Environment_Test",
+    "tasks": [
+        {
+            "check-columns-summary": true,
+            "check-data-summary": true,
+            "check-filters-exist": true,
+            "check-image": true,
+            "check-parameters-exist": true,
+            "check-worksheets-exist": true,
+            "disabled": false,
+            "image": {
+                "sampling-size": 50,
+                "threshold-percentage": 10
+            },
+            "name": "Cross Environment Test",
+            "refresh-data": true,
+            "site-id": "{{TABLEAU_SITE}}",
+            "tableau-server-password": "9h9oMJ05dVvJlifzl/v8;encrypted",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-env": {
+                "target-site-id": "prod",
+                "target-tableau-server-password": "/QVPAqgaQn4=;encrypted",
+                "target-tableau-server-url": "http://localhost:80",
+                "target-tableau-server-user": "<TABLEAU_PROD_SERVER_USER>",
+                "target-url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+            },
+            "type": "crossenv_test",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard",
+            "use-formatted-values": false
+        }
+    ],
+    "type": "crossenv"
+}

@@ -1,0 +1,52 @@
+{
+    "type": "functional",
+    "description": "Assert data equals - crosstab",
+    "name": "6.Assert_Data_Equals",
+    "tasks": [
+        {
+            "db-password": "{{MSQL_PWD}}",
+            "db-username": "{{MSQL_USER}}",
+            "description": "Publish Education and Innovation twb workbook to Tableau Server",
+            "name": "Publish Tableau workbook",
+            "project": "Education",
+            "site-id": "{{TABLEAU_SITE}}",
+            "source-doc-path": "../../src/Education and Innovation.twb",
+            "tableau-server-password": "{{TABLEAU_PWD}}",
+            "tableau-server-url": "{{TABLEAU_URL}}",
+            "tableau-server-user": "{{TABLEAU_USER}}",
+            "target-doc-name": "Education and Innovation",
+            "type": "publish_tableau"
+        },
+        {
+            "description": "Login to Tableau to open dashboard",
+            "name": "Login to Tableau",
+            "password": "{{TABLEAU_PWD}}",
+            "site-id": "{{TABLEAU_SITE}}",
+            "type": "login_tableau",
+            "url": "{{TABLEAU_URL}}",
+            "user": "{{TABLEAU_USER}}"
+        },
+        {
+            "description": "Open Education and Innovation Dashboard",
+            "name": "Open Education and Innovation Dashboard",
+            "type": "viz_open",
+            "url": "{{TABLEAU_URL}}/t/{{TABLEAU_SITE}}/views/EducationandInnovation/Dashboard"
+        },
+        {
+            "description": "Set Year Filter by selecting a range to display on the dashboard",
+            "max": 2015,
+            "min": 2007,
+            "name": "Set Filter: Year",
+            "target": "Year",
+            "type": "set_filter_range"
+        },
+        {
+            "description": "Assert Data Equals after changing date range",
+            "expected-csv-path": "resources/Gvt_Spending_on_Education_BAR_crosstab_yr_07-15.csv",
+            "export-type": "CROSSTAB",
+            "name": "Assert Data Equals",
+            "target": "Gvt Spending on Education BAR",
+            "type": "assert_data_equals"
+        }
+    ]
+}
