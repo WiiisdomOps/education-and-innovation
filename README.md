@@ -61,7 +61,6 @@ If you want to run tests automatically on a Continuous Integration Server, for e
 Command Line Interface allows you to run previously created Kinesis tests and integrate it with the CI tool of your choice.
 
 For more information on the integration of Wiiisdom Ops for Tableau and Jenkins, please see https://wiiisdom.com/documents/#/continuous-integration
-<<<<<<< HEAD
 
 
 =======
